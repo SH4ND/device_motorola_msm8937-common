@@ -141,7 +141,7 @@ PRODUCT_PACKAGES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth.audio@2.1-impl:32 \
+    android.hardware.bluetooth.audio-impl \
     android.hardware.bluetooth@1.0.vendor
 
 # Filesystem
