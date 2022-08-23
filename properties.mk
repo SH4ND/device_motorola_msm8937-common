@@ -64,9 +64,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.qcom.bluetooth.soc=pronto \
-    bluetooth.device.default_name=Moto E5 Plus \
-    bluetooth.hardware.power.operating_voltage_mv=3300
+    vendor.qcom.bluetooth.soc=pronto
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
