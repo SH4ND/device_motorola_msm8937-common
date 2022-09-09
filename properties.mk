@@ -269,3 +269,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     iorapd.perfetto.enable=false \
     iorapd.readahead.enable=false \
     persist.device_config.runtime_native_boot.iorap_readahead_enable=false
+    ro.surface_flinger.supports_background_blur=0
+
+# Zygote
+PRODUCT_PROPERTY_OVERRIDES += \
+    zygote.critical_window.minute=10
