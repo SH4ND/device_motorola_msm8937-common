@@ -55,6 +55,7 @@ system_ext/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
 
 # Camera
 vendor/lib/libllvd_smore.so|9aae0936cfb6cb11dabd12eab73111b0
+vendor/lib/libmmcamera_ppeiscore.so|b74f4323af1bfa52eb73fa0d4c3c5d59f70e966a
 
 # CNE
 -vendor/app/CneApp/CneApp.apk
