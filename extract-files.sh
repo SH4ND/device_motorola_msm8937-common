@@ -27,12 +27,6 @@ source "${HELPER}"
 function blob_fixup() {
     case "${1}" in
         vendor/lib/libmot_gpu_mapper.so)
-            for LIBGUI_SHIM in $(grep -L "libgui_shim_vendor.so" "${2}"); do
-                "${PATCHELF}" --add-needed "libgui_shim_vendor.so" "${LIBGUI_SHIM}"
-            done
-            ;;
-
-        vendor/lib/libmot_gpu_mapper.so | vendor/lib/libmmcamera_vstab_module.so)
             sed -i "s/libgui/libwui/" "${2}"
             ;;
 
