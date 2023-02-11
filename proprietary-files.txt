@@ -397,8 +397,8 @@ vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc|c966350ee67d3a7
 vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so|b3458f1507146fe99f2f70ed1883ae1ceb2e17bb
 vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so|29130d7b0050885a6b455390a02a8615563403c4
 
-# Gatekeeper
-vendor/lib64/hw/gatekeeper.msm8953.so:vendor/lib64/hw/gatekeeper.msm8937.so|3125e1bad9e8231df1628d909ba514b250835a7d
+# Gatekeeper - from LA.UM.9.6.3.r1-06200-89xx.0
+vendor/lib64/hw/gatekeeper.msm8937.so|7be56a403c30f093865f08bf0f0335aeb99ec7fd
 
 # GPS - from dpl_sprout - RKQ1.200928.002
 vendor/bin/garden_app|3d55864b18d1b1a27eb980144a8db51c54d74238
@@ -576,8 +576,8 @@ vendor/lib64/vendor.qti.imsrtpservice@2.1.so
 # IMS - from daisy - QKQ1.191002.002 V11.0.21.0.QDLMIXM
 -product/priv-app/ims/ims.apk:system_ext/priv-app/ims/ims.apk|9c4ca91e0ec7a567d22251d7ca0640abf13fdd7b
 
-# Keymaster
-vendor/lib64/hw/keystore.msm8953.so:vendor/lib64/hw/keystore.msm8937.so|d8303e587ac8cd79205ddf5e0627edefbc281561
+# Keystore - from LA.UM.9.6.3.r1-06200-89xx.0
+vendor/lib64/hw/keystore.msm8937.so|0942d9308cc9dfbc305dd0b9e8b1e3ba75ebae38
 
 # Listen - from X00RD - QKQ1.191002.002-17.07.2003.405-20200330
 vendor/lib/libadpcmdec.so|be5fdf08a08b635816381e61b6bbf2874c62f613
