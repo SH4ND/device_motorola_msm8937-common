@@ -5,7 +5,7 @@ echo ""
 
 # Kernel
 echo "cloning kernel"
-git clone -b hannah-337 git@github.com:Team-NoobMaster69/kernel_motorola_msm8953.git kernel/motorola/msm8953
+git clone -b hannah-337 git@github.com:Team-NoobMaster69/kernel_motorola_msm8953.git kernel/motorola/msm8937
 echo ""
 
 # Dependencies
