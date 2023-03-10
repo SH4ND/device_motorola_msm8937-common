@@ -8,7 +8,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product, vendor/motorola/msm8937-common/msm8937-common-vendor.mk)
+$(call inherit-product, vendor/motorola/hannah/hannah-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS +=  $(LOCAL_PATH)/overlay
@@ -22,6 +22,10 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1440
+TARGET_SCREEN_WIDTH := 720
+
 # Additional native libraries
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
@@ -29,6 +33,7 @@ PRODUCT_COPY_FILES += \
 # APEX
 PRODUCT_COMPRESSED_APEX := false
 
+# DEX
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     Settings \
     SystemUI
@@ -45,8 +50,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.audio.service \
-    android.hardware.audio@7.0-impl:32 \
-    android.hardware.audio.effect@7.0-impl:32
+    android.hardware.audio@7.0-impl \
+    android.hardware.audio.effect@7.0-impl
 
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_in_audio_policy_configuration_7_0.xml \
@@ -57,10 +62,12 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
-    $(LOCAL_PATH)/audio/audio_ext_spkr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_ext_spkr.conf \
-    $(LOCAL_PATH)/audio/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf \
-    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
+    $(LOCAL_PATH)/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
+    $(LOCAL_PATH)/configs/audio/audio_ext_spkr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_ext_spkr.conf \
+    $(LOCAL_PATH)/configs/audio/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf \
+    $(LOCAL_PATH)/configs/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    $(LOCAL_PATH)/configs/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
+    $(LOCAL_PATH)/configs/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/enginedefault/config/example/phone/audio_policy_engine_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_engine_configuration.xml \
@@ -68,16 +75,8 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/enginedefault/config/example/phone/audio_policy_engine_product_strategies.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_engine_product_strategies.xml \
     frameworks/av/services/audiopolicy/enginedefault/config/example/phone/audio_policy_engine_stream_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_engine_stream_volumes.xml
 
-# A2DP
-PRODUCT_PACKAGES += \
-  audio.a2dp.default \
-  libldacBT_bco \
-  android.hardware.bluetooth.a2dp@1.0-impl \
-  android.hardware.bluetooth.a2dp@1.0-service
-
 # Camera
 PRODUCT_PACKAGES += \
-    libbson.vendor \
     libstdc++.vendor \
     libwui
 
@@ -86,23 +85,20 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.5 \
     android.hardware.camera.provider@2.5-service
 
-# APNs
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/apns-conf.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/apns-conf.xml \
-    $(LOCAL_PATH)/configs/apns-conf.xml:$(TARGET_COPY_OUT_VENDOR)/etc/apns-conf.xml
-
-# CNE
-PRODUCT_PACKAGES += \
-    libcnefeatureconfig
+    $(LOCAL_PATH)/configs/camera/mot_s5k4h7_hannah_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/mot_s5k4h7_hannah_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/msm8937_mot_camera_conf.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/msm8937_mot_camera_conf.xml \
+    $(LOCAL_PATH)/configs/camera/ov12a10_hannah_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/ov12a10_hannah_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov5675_jeterht_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/ov5675_jeterht_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov5675_jeterkc_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/ov5675_jeterkc_chromatix.xml
 
 # Network
 PRODUCT_PACKAGES += \
     android.system.net.netd@1.1.vendor
 
-# NeuralNetworks
+# Doze
 PRODUCT_PACKAGES += \
-    android.hardware.neuralnetworks@1.1.vendor \
-    android.hardware.neuralnetworks@1.0.vendor
+    MotoDoze
 
 # Component overrides
 PRODUCT_COPY_FILES += \
@@ -211,8 +207,6 @@ PRODUCT_PACKAGES += \
 
 # Keymaster
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-service-qti.rc \
-    android.hardware.keymaster@3.0-service \
     android.hardware.keymaster@3.0.vendor
 
 # IRQ balance
@@ -233,7 +227,12 @@ PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := true
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl
+    $(LOCAL_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl \
+    $(LOCAL_PATH)/keylayout/uinput-egis.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-egis.kl
+
+# IDC
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/idc/uinput-egis.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-egis.idc
 
 # ConfigStore
 PRODUCT_PACKAGES += \
@@ -248,15 +247,9 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video_le.xml \
-    $(LOCAL_PATH)/configs/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
-    $(LOCAL_PATH)/configs/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
-    $(LOCAL_PATH)/configs/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
-
-# MotoActions
-ifeq ($(filter %ahannah %rhannah,$(TARGET_PRODUCT)),)
-PRODUCT_PACKAGES += \
-    MotoActions
-endif
+    $(LOCAL_PATH)/configs/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/media/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
+    $(LOCAL_PATH)/configs/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
 # OMX
 PRODUCT_PACKAGES += \
@@ -297,21 +290,13 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml \
-    $(LOCAL_PATH)/configs/com.motorola.cameraone.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.motorola.cameraone.xml
-
-ifeq ($(filter %ahannah %james %rhannah,$(TARGET_PRODUCT)),)
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.sensor.compass.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.compass.xml \
-    frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.gyroscope.xml
-endif
-
-ifeq ($(filter %james %rhannah,$(TARGET_PRODUCT)),)
-PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute.xml \
     frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level.xml \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version.xml \
-    frameworks/native/data/etc/android.software.vulkan.deqp.level-2019-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml
-endif
+    frameworks/native/data/etc/android.software.vulkan.deqp.level-2019-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml \
+    frameworks/native/data/etc/android.hardware.sensor.compass.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.compass.xml \
+    frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.gyroscope.xml \
+    $(LOCAL_PATH)/configs/com.motorola.cameraone.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.motorola.cameraone.xml
 
 # Power
 PRODUCT_PACKAGES += \
@@ -321,7 +306,6 @@ PRODUCT_PACKAGES += \
 
 # Perf
 PRODUCT_PACKAGES+= \
-    vendor.qti.hardware.perf@2.2 \
     vendor.qti.hardware.perf@2.2.vendor
 
 # Protobuf
@@ -374,12 +358,15 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.recovery.qcom.rc \
     init.target.rc \
-    ueventd.qcom.rc
+    ueventd.qcom.rc \
+    init.device.rc
 
 PRODUCT_PACKAGES += \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
-    init.qcom.sh
+    init.qcom.sh \
+    init.mmi.laser.sh \
+    init.qcom.sensors.sh
 
 # Recovery
 PRODUCT_PACKAGES += \
@@ -397,17 +384,23 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl:64 \
     android.hardware.sensors@1.0-service
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf \
+    $(LOCAL_PATH)/configs/sensors/sensor_def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/sensor_def_qcomdev.conf
+
 # Shims
 PRODUCT_PACKAGES += \
     libgui_shim \
     libgui_shim_vendor \
     libcutils_shim \
-    libmemset_shim \
     libqsapshim
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(LOCAL_PATH) \
+    hardware/qcom-caf/msm8996/display \
+    hardware/qcom-caf/msm8996/audio \
+    hardware/qcom-caf/msm8996/media
 
 # Telephony
 PRODUCT_PACKAGES += \

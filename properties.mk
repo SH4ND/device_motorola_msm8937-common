@@ -5,6 +5,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.video=true \
     persist.vendor.audio.dualmic.config=endfire \
     persist.vendor.audio.fluence.voicecall=true \
+    persist.vendor.audio.fluence.speaker=false \
     persist.vendor.audio.fluence.voicecomm=true \
     persist.vendor.audio.fluence.voicerec=true \
     ro.config.max_starting_bg=8 \
@@ -50,7 +51,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.camera.display.lmax=1280x720 \
     persist.vendor.camera.HAL3.enabled=1 \
     persist.camera.HAL3.enabled=1 \
-    persist.vendor.qti.telephony.vt_cam_interface=1
+    persist.vendor.qti.telephony.vt_cam_interface=1 \
+    persist.vendor.camera.tof.direct=1
 
 # Charger
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -70,6 +72,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat-threads=6 \
     dalvik.vm.heapstartsize=16m \
     dalvik.vm.heapgrowthlimit=256m \
     dalvik.vm.heapsize=512m \
@@ -118,6 +121,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.enable_gl_backpressure=1 \
     debug.renderengine.backend=threaded \
     ro.hardware.egl=adreno \
+    ro.opengles.version=196610 \
     ro.hardware.vulkan=adreno \
     debug.sf.recomputecrop=0 \
     dev.pm.dyn_samplingrate=1 \
@@ -125,7 +129,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.disable_rotator_split=1 \
     vendor.display.disable_skip_validate=1 \
     vendor.display.perf_hint_window=50 \
-    vendor.gralloc.enable_fb_ubwc=1
+    vendor.gralloc.enable_fb_ubwc=1 \
+    debug.hwui.use_buffer_age=false
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
@@ -208,7 +213,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.sensors.facing=false \
     ro.vendor.sensors.scrn_ortn=false \
     ro.vendor.sensors.cmc=false \
-    ro.vendor.sensors.pedometer=false
+    ro.vendor.sensors.pedometer=false \
+    ro.hardware.sensors=hannah \
+    ro.vendor.sensors.amd=false \
+    ro.vendor.sensors.gravity=false \
+    ro.vendor.sensors.laccel=false
+
+# Soc
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.soc.manufacturer=Qualcomm \
+    ro.soc.model=MSM8937
 
 # Trim properties
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -235,9 +249,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Smoothens UI
 PRODUCT_PROPERTY_OVERRIDES += \
-persist.service.lgospd.enable=0 \
-persist.service.pcsync.enable=0
+    persist.service.lgospd.enable=0 \
+    persist.service.pcsync.enable=0
 
 # Blur
 PRODUCT_PROPERTY_OVERRIDES += \
-ro.launcher.blur.appLaunch=0
+    ro.launcher.blur.appLaunch=0
+
+# App launch prefetching (IORapd)
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.iorapd.enable=false \
+    iorapd.perfetto.enable=false \
+    iorapd.readahead.enable=false \
+    persist.device_config.runtime_native_boot.iorap_readahead_enable=false
