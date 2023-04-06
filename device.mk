@@ -10,6 +10,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/motorola/hannah/hannah-vendor.mk)
 
+# PRODUCT_SHIPPING_API_LEVEL indicates the first api level, device has been commercially launched on.
+PRODUCT_SHIPPING_API_LEVEL := 27
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS +=  $(LOCAL_PATH)/overlay
 
