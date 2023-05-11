@@ -1,13 +1,13 @@
 # ADSP - from dpl_sprout - RKQ1.200928.002
 vendor/bin/adsprpcd|b736b00857d64e74a3b9be887215124d186f95d5
-vendor/lib/libadsprpc.so|5d784c9f1ff7845b04ecba1c2592aad29ff53f7b
 vendor/lib/libadsp_default_listener.so|7bed67d442ce79de62b9a6ba398df321ef6b7397
+vendor/lib/libadsprpc.so|5d784c9f1ff7845b04ecba1c2592aad29ff53f7b
 vendor/lib/libfastcvadsp_stub.so|70772d0bc39617430e27a21f89fccd93cc757185
 vendor/lib/libfastcvopt.so|151040b1e9a4d78e4a66654a2f09af6ffd6e679d
 vendor/lib/libmdsprpc.so|7ece3d6d2f987a6042d581f5eab7f6271e712965
 vendor/lib/libsdsprpc.so|eb4981427c163bd6cd1eed6c2dbe364da3c1a883
-vendor/lib64/libadsprpc.so|e1fe0a21169d116f6996070a097b530f758ceabd
 vendor/lib64/libadsp_default_listener.so|0324e797f6fdd15680df7fdacc51f713e40b9806
+vendor/lib64/libadsprpc.so|e1fe0a21169d116f6996070a097b530f758ceabd
 vendor/lib64/libfastcvadsp_stub.so|f4535845bc4f40e3cb8e79d090e5ed87b0acfbb0
 vendor/lib64/libfastcvopt.so|03da360f22884667c9110ff2384f8dca35e32671
 vendor/lib64/libmdsprpc.so|c0b5cf2e733829cd7d8ba0c3133cb115511b5dc5
@@ -55,6 +55,11 @@ vendor/etc/acdbdata/Speaker_cal.acdb
 system/lib/libdualcameraddm.so
 system/lib/libjni_dualcamera.so
 system/lib/libqvrcamera_client.so
+vendor/lib/libS5k2l7Pdaf.so
+vendor/lib/libS5k2l7PdafCamif.so
+vendor/lib/libSonyDefocus.so
+vendor/lib/libSonyDualPDLibrary.so
+vendor/lib/libSonyDualPDParam.so
 vendor/lib/libchromaflash.so
 vendor/lib/libgralloc1.so
 vendor/lib/libjpegdhw.so
@@ -68,11 +73,6 @@ vendor/lib/libqomx_jpegenc.so
 vendor/lib/libqomx_jpegenc_pipe.so
 vendor/lib/libremosaic_daemon.so
 vendor/lib/libseemore.so
-vendor/lib/libS5k2l7Pdaf.so
-vendor/lib/libS5k2l7PdafCamif.so
-vendor/lib/libSonyDefocus.so
-vendor/lib/libSonyDualPDLibrary.so
-vendor/lib/libSonyDualPDParam.so
 vendor/lib/libtrueportrait.so
 -vendor/lib/libts_detected_face_hal.so
 -vendor/lib/libts_face_beautify_hal.so
@@ -81,12 +81,28 @@ vendor/lib/libubifocus.so
 # Camera - from deen_sprout - QPKS30.54-22-12
 vendor/bin/mm-qcamera-daemon|2fc4ed764c1f5e6433bc04d08e1d5cd91c7b3a10
 vendor/lib/hw/camera.msm8953.so:vendor/lib/hw/camera.msm8937.so|533198568f463760412de847d742d1fb41ae8f8e
+vendor/lib/libDepthBokehEffect.so|e47968cde0740770c86c7df242e157c48329d25b
+vendor/lib/libDepthBokehEffect2.so|e47968cde0740770c86c7df242e157c48329d25b
 vendor/lib/lib_mot_app6_metadata.so|6187e7410c98dbce66c5a9ca0aea0f59eb289ab9
 vendor/lib/lib_mot_led_calibration.so|b61378e571f25608b183492e6351d4ff79fbb560
 vendor/lib/lib_motsensorlistener.so|acfd2ca58d28e95781d88f28bc088cceca267973
-vendor/lib/libDepthBokehEffect.so|e47968cde0740770c86c7df242e157c48329d25b
-vendor/lib/libDepthBokehEffect2.so|e47968cde0740770c86c7df242e157c48329d25b
 vendor/lib/libflash_pmic.so|77f7a5a00864b945df3df820c7c8e4a482333a24
+vendor/lib/libmmcamera2_c2d_module.so|03b0a02225e4ffcac485e7e6f5cf936504cb259a
+vendor/lib/libmmcamera2_cpp_module.so|0f89c66cdb8b6b50a796b43883d01afa3760d95c
+vendor/lib/libmmcamera2_dcrf.so|dacfa98db58c5470566f4ed1c6b5707c0029f107
+vendor/lib/libmmcamera2_frame_algorithm.so|728385664b794fd50767896fd392d2cc1074a979
+vendor/lib/libmmcamera2_iface_modules.so|e6da3bcb34b44b356f923fbf9b24cb59c0fdc292
+vendor/lib/libmmcamera2_imglib_modules.so|f7d1ee6a7a2d8ba465d5cdb8ec1ee257436b892f
+vendor/lib/libmmcamera2_is.so|c0ab9bc4e635f573c05640211d0b3e7d7e37f95f
+vendor/lib/libmmcamera2_isp_modules.so|510f2b20ba9cf25fd47b38087ddb7539df352bc3
+vendor/lib/libmmcamera2_mct.so|8cc521ffe33194667ebe178d14d6d7de387e3f4b
+vendor/lib/libmmcamera2_mct_shimlayer.so|8a22d7123e1b2d7f45a86aac5a6ceee8217c4c86
+vendor/lib/libmmcamera2_pp_buf_mgr.so|76bfbc64b64b03a3814279269b1541abb8f74030
+vendor/lib/libmmcamera2_pproc_modules.so|0356dc74bcc3075d700a31b3f7634a66f2fc2905
+vendor/lib/libmmcamera2_q3a_core.so|e85772683bcfaa1ac07caeb3ed3739ab411f46dd
+vendor/lib/libmmcamera2_sensor_modules.so|92e6e1a4527c44b809d7a4d76d3775a2ad121fe5
+vendor/lib/libmmcamera2_stats_algorithm.so|0cdf89ceb0b492a4cc7d461646acbf601f40f6bd
+vendor/lib/libmmcamera2_stats_modules.so|f613c8d61b8f447594519a6cfae80230b8d09833
 vendor/lib/libmmcamera_chromaflash_lib.so|9ec3ac2e26b25a3473802b94ca0a3dfa1d263d25
 vendor/lib/libmmcamera_dbg.so|1c428da7ab6e0f50fbd8530e6e547b097fb76bc5
 vendor/lib/libmmcamera_dcrf_lib.so|842981218abe798073158dbf380bbefa8dc2d065
@@ -105,6 +121,7 @@ vendor/lib/libmmcamera_paaf_lib.so|f7c081e0455f0f5e7c817b0a76db9ae63b179a15
 vendor/lib/libmmcamera_pdaf.so|663525b80b93ddd99069ecb73b717715ddcbda1a
 vendor/lib/libmmcamera_pdafcamif.so|280b0480de31cdc039f41f89e9067591f1b1c4a4
 vendor/lib/libmmcamera_ppbase_module.so|1288841c9760fa6c06133a3605be4e02f6d61015
+vendor/lib/libmmcamera_ppeiscore.so|b74f4323af1bfa52eb73fa0d4c3c5d59f70e966a
 vendor/lib/libmmcamera_quadracfa.so|c0907e634f2309c6ff33a18890671eb5a2267d43
 vendor/lib/libmmcamera_stillmore_lib.so|34f06b5d032ab291638540bdf07cd5041c7c89d2
 vendor/lib/libmmcamera_sw2d_lib.so|59467f9b266cfb68e2fd6597549c9f9104809c77
@@ -114,28 +131,11 @@ vendor/lib/libmmcamera_tintless_bg_pca_algo.so|e08d517d1bb57db9af906d354b0be89c5
 vendor/lib/libmmcamera_trueportrait_lib.so|bfa1e45498d8eaa8f9db40b916ed2d0be3cec535
 vendor/lib/libmmcamera_ubifocus_lib.so|eeaa423523e01ad4bc5069fe55f0bd5192c030a3
 vendor/lib/libmmcamera_vstab_module.so|f2db7c3441cd3e7d6f52a11310ef4f4904b54b10
-vendor/lib/libmmcamera2_c2d_module.so|03b0a02225e4ffcac485e7e6f5cf936504cb259a
-vendor/lib/libmmcamera2_cpp_module.so|0f89c66cdb8b6b50a796b43883d01afa3760d95c
-vendor/lib/libmmcamera2_dcrf.so|dacfa98db58c5470566f4ed1c6b5707c0029f107
-vendor/lib/libmmcamera2_frame_algorithm.so|728385664b794fd50767896fd392d2cc1074a979
-vendor/lib/libmmcamera2_iface_modules.so|e6da3bcb34b44b356f923fbf9b24cb59c0fdc292
-vendor/lib/libmmcamera2_imglib_modules.so|f7d1ee6a7a2d8ba465d5cdb8ec1ee257436b892f
-vendor/lib/libmmcamera2_is.so|c0ab9bc4e635f573c05640211d0b3e7d7e37f95f
-vendor/lib/libmmcamera2_isp_modules.so|510f2b20ba9cf25fd47b38087ddb7539df352bc3
-vendor/lib/libmmcamera2_mct.so|8cc521ffe33194667ebe178d14d6d7de387e3f4b
-vendor/lib/libmmcamera2_mct_shimlayer.so|8a22d7123e1b2d7f45a86aac5a6ceee8217c4c86
-vendor/lib/libmmcamera2_pp_buf_mgr.so|76bfbc64b64b03a3814279269b1541abb8f74030
-vendor/lib/libmmcamera2_pproc_modules.so|0356dc74bcc3075d700a31b3f7634a66f2fc2905
-vendor/lib/libmmcamera2_q3a_core.so|e85772683bcfaa1ac07caeb3ed3739ab411f46dd
-vendor/lib/libmmcamera2_sensor_modules.so|92e6e1a4527c44b809d7a4d76d3775a2ad121fe5
-vendor/lib/libmmcamera2_stats_algorithm.so|0cdf89ceb0b492a4cc7d461646acbf601f40f6bd
-vendor/lib/libmmcamera2_stats_modules.so|f613c8d61b8f447594519a6cfae80230b8d09833
 vendor/lib/libmmjpeg.so|97101fa8a7d7137011b38349eae2f5de5f63d7a1
 vendor/lib/libmmjpeg_interface.so|9da4aee269b3e5fecdefac09953f123ae046a73f
 vendor/lib/libmmqjpeg_codec.so|93fb7395e1b3490d46163cc1486022876fc4ace2
 vendor/lib/libmmqjpegdma.so|d4b449b6596b50e765819a677aeb6f876475cde9
 vendor/lib/libmotocalibration.so|d23f3bccc0bd0e670362dcb5a660a0b5ed5475f6
-vendor/lib/libmmcamera_ppeiscore.so|b74f4323af1bfa52eb73fa0d4c3c5d59f70e966a
 
 # Camera actuators - from deen_sprout - PPKS29.68-16-36-14
 vendor/lib/libactuator_dw9767.so:vendor/lib/libactuator_dw9767_truly.so|130e895c61c23b168e310212945e4ad776d80440
@@ -288,19 +288,19 @@ vendor/lib/sensors.hal.tof.so
 # Bluetooth - from deen_sprout - PPKS29.68-16-36-13
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|063da7375148fdd56930a54ea8d3e276725e62df
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|a979981c55f3dcaf6cf2212e71b901ca4d58b959
-vendor/lib64/com.qualcomm.qti.ant@1.0.so|ce9b89df917622cf1e0e58aa3b3be6e410c4c2d7
 vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|a6fa0b97864e41f36c7d859612d2b24c14bc1597
-vendor/lib64/libbtnv.so|f467a39938b8e76e3dea295ef412e69b6402254f
+vendor/lib64/com.qualcomm.qti.ant@1.0.so|ce9b89df917622cf1e0e58aa3b3be6e410c4c2d7
 vendor/lib64/libbt-hidlclient.so|e7cc68021ff2a38728a50c92914420ba61d2c5c3
+vendor/lib64/libbtnv.so|f467a39938b8e76e3dea295ef412e69b6402254f
 vendor/lib64/vendor.qti.hardware.fm@1.0.so|b72b6bc0f79ef8289f4b543910e7e2d91961831f
 
 # Bluetooth (aptX) - from crosshatch - RQ3A.210605.005
-system_ext/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
 system_ext/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
+system_ext/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
 
 # Camera
-vendor/lib/libmot_gpu_mapper.so|9f4d96542314976a8384f686a2a4c49d321999fe
 vendor/lib/libllvd_smore.so|9aae0936cfb6cb11dabd12eab73111b0
+vendor/lib/libmot_gpu_mapper.so|9f4d96542314976a8384f686a2a4c49d321999fe
 
 # Camera firmware
 vendor/firmware/cpp_firmware_v1_10_0.fw
@@ -395,13 +395,13 @@ vendor/lib64/libQSEEComAPI.so|86252d1363ce220cf213f02636495f41904e7ddd
 vendor/lib64/libStDrvInt.so|add517206707a8bd7f116b6b1554a16c51fe6668
 vendor/lib64/libdrmfs.so|0af7d14a3d9f906d2c95650ca748399882e746cc
 vendor/lib64/libdrmtime.so|beac981103d7e61cf58be46f0729ec123f56b629
+vendor/lib64/libops.so|3c763226ccc3b0f32e131af71a458b41bf2b3d8d
 vendor/lib64/libqisl.so|529d7e20bb33147fe3404c1a58d266e49228046a
 vendor/lib64/librpmb.so|98c96895dbf6c7ab8791c76a9109a89cc692b85b
 vendor/lib64/libsecureui.so|172515cb527477c4669c43529628586aeee264bc
 vendor/lib64/libsecureui_svcsock.so|2232f56927964f10d41868919d94711930d50ed0
-vendor/lib64/libssd.so|1e2243f7eb5d36544a5ae51166d748b7b30e63c6
-vendor/lib64/libops.so|3c763226ccc3b0f32e131af71a458b41bf2b3d8d
 vendor/lib64/libspl.so|f8bbe0322ce06a545f5dc79c888183ac61673b68
+vendor/lib64/libssd.so|1e2243f7eb5d36544a5ae51166d748b7b30e63c6
 
 # DRM - Qualcomm Trusted Execution Enviornment - from dpl_sprout - RKQ1.200928.002
 vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service|f8dc88c7166ffc2c1d997e7d5f16a8eb69c37cfc
@@ -555,9 +555,6 @@ system_ext/lib64/libmmosal.so|ef19a38be8283c87eabe96f74bc8a71881ab1f0a
 vendor/lib/libAlacSwDec.so|9404a482dd25bb77cdfec7b1ddef8a68d6946fec
 vendor/lib/libApeSwDec.so|cecc7a897711b96321128210efbfa03ecbd02714
 vendor/lib/libFlacSwDec.so|7d661ac115de794bc6f6f7d20d4f93735b698c52
-vendor/lib/libmmosal.so|e23d6d1b2a035c08ffd7ac72d5241ebff37f0d14
-vendor/lib/libOmxVpp.so|825146c3065d4f08ac54de62c43d4be31debca31
-vendor/lib/libvpplibrary.so|de25e347aeb813bfe2d091cbd61cc70219242af3
 vendor/lib/libOmxAacDec.so|7c7ffe4f9ae9881b66ecde16bae36e9fb9a26676
 vendor/lib/libOmxAlacDec.so|268751eecd1d5ba42ae18e6a7c02377ae6ebd850
 vendor/lib/libOmxAlacDecSw.so|59055e1c00ed82f7c310dcf78d4104b9f803d12e
@@ -570,7 +567,10 @@ vendor/lib/libOmxEvrcDec.so|99202c934d1fdd1e428527019b7dc92dde40edc6
 vendor/lib/libOmxG711Dec.so|9e74e8d60466708eabc155910d14f597041631c3
 vendor/lib/libOmxQcelp13Dec.so|4424762bcf639284112395b4c9d63cb58c799638
 vendor/lib/libOmxVideoDSMode.so|71c4f23de93e91931c077ed511301185152422da
+vendor/lib/libOmxVpp.so|825146c3065d4f08ac54de62c43d4be31debca31
 vendor/lib/libOmxWmaDec.so|c47e74a73afa486429c009f338779cd78566f77c
+vendor/lib/libmmosal.so|e23d6d1b2a035c08ffd7ac72d5241ebff37f0d14
+vendor/lib/libvpplibrary.so|de25e347aeb813bfe2d091cbd61cc70219242af3
 vendor/lib/libvqzip.so|f85628ea634df1c31d69380d960ad7ea3396e7b2
 vendor/lib64/libmmosal.so|e9fdb48163e92b089cea0c397723a8416436c272
 
