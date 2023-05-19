@@ -259,14 +259,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
 
-# Smoothens UI
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.service.lgospd.enable=0 \
-    persist.service.pcsync.enable=0
-
 # Blur
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.launcher.blur.appLaunch=0
+    ro.launcher.blur.appLaunch=0 \
+    ro.surface_flinger.supports_background_blur=0
 
 # App launch prefetching (IORapd)
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -274,7 +270,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     iorapd.perfetto.enable=false \
     iorapd.readahead.enable=false \
     persist.device_config.runtime_native_boot.iorap_readahead_enable=false
-    ro.surface_flinger.supports_background_blur=0
 
 # Zygote
 PRODUCT_PROPERTY_OVERRIDES += \
