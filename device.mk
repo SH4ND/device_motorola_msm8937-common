@@ -47,8 +47,7 @@ PRODUCT_COMPRESSED_APEX := false
 
 # DEX
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    Settings \
-    SystemUI
+    Settings
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -406,13 +405,15 @@ PRODUCT_COPY_FILES += \
 
 # Speed profile services and wifi-service to reduce RAM and storage
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
+
+# Inherit several Android Go Configurations(Beneficial for everyone, even on non-Go devices)
 PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
 PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-image-profile.txt
+
+# Always preopt extracted APKs to prevent extracting out of the APK
 PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
 DONT_DEXPREOPT_PREBUILTS := true
 USE_DEX2OAT_DEBUG := false
-PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
-PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 
 # USB
 PRODUCT_PACKAGES += \
