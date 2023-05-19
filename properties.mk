@@ -66,6 +66,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.qcom.bluetooth.soc=pronto
 
+# Blur
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.launcher.blur.appLaunch=0 \
+    ro.surface_flinger.supports_background_blur=0
+
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=1 \
@@ -80,7 +85,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.charger.enable_suspend=true
 
-# Cne
+# CNE
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.cne.feature=1 \
     persist.vendor.mwqem.enable=1
@@ -95,12 +100,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapminfree=4m \
     dalvik.vm.heapmaxfree=8m
 
-# Debug
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.dbg.volte_avail_ovr=1 \
-    persist.dbg.vt_avail_ovr=1 \
-    persist.dbg.wfc_avail_ovr=1
-
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.hwc_set_default_colormode=true \
@@ -114,15 +113,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Fingerprint
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.qfp=false
-
-# IMS
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.ims.disableIMSLogs=1 \
-    persist.vendor.ims.disableADBLogs=1 \
-    persist.vendor.ims.disableDebugDataPathLogs=1 \
-    persist.vendor.ims.disableDebugLogs=1 \
-    persist.vendor.ims.disableSigHandler=1 \
-    persist.vendor.ims.disableQXDMLogs=1
 
 # FRP
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -158,6 +148,15 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.max_virtual_display_dimension=4096 \
     ro.surface_flinger.use_color_management=true
 
+# IMS
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.ims.disableIMSLogs=1 \
+    persist.vendor.ims.disableADBLogs=1 \
+    persist.vendor.ims.disableDebugDataPathLogs=1 \
+    persist.vendor.ims.disableDebugLogs=1 \
+    persist.vendor.ims.disableSigHandler=1 \
+    persist.vendor.ims.disableQXDMLogs=1
+
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.audio.sink=280 \
@@ -185,6 +184,29 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 PRODUCT_ODM_PROPERTIES += \
     ro.vendor.qti.va_odm.support=1
+
+# Radio
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.radio.multisim.config=dsds \
+    persist.vendor.data.iwlan.enable=true \
+    persist.vendor.radio.add_power_save=1 \
+    persist.vendor.radio.aosp_usr_pref_sel=true \
+    persist.vendor.radio.apm_sim_not_pwdn=1 \
+    persist.vendor.radio.custom_ecc=1 \
+    persist.vendor.radio.data_con_rprt=1 \
+    persist.vendor.radio.data_ltd_sys_ind=1 \
+    persist.vendor.radio.enableadvancedscan=false \
+    persist.vendor.radio.hw_mbn_update=0 \
+    persist.vendor.radio.procedure_bytes=SKIP \
+    persist.vendor.radio.mt_sms_ack=30 \
+    persist.vendor.radio.rat_on=combine \
+    persist.vendor.radio.sib16_support=1
+
+# Radio (IMS)
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.dbg.volte_avail_ovr=1 \
+    persist.dbg.vt_avail_ovr=1 \
+    persist.dbg.wfc_avail_ovr=1
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -217,28 +239,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.service.qti.ims.enabled=1 \
     ro.telephony.default_network=22,22
 
-# Radio
+# Time
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.radio.multisim.config=dsds \
-    persist.vendor.data.iwlan.enable=true \
-    persist.vendor.radio.add_power_save=1 \
-    persist.vendor.radio.aosp_usr_pref_sel=true \
-    persist.vendor.radio.apm_sim_not_pwdn=1 \
-    persist.vendor.radio.custom_ecc=1 \
-    persist.vendor.radio.data_con_rprt=1 \
-    persist.vendor.radio.data_ltd_sys_ind=1 \
-    persist.vendor.radio.enableadvancedscan=false \
-    persist.vendor.radio.hw_mbn_update=0 \
-    persist.vendor.radio.procedure_bytes=SKIP \
-    persist.vendor.radio.mt_sms_ack=30 \
-    persist.vendor.radio.rat_on=combine \
-    persist.vendor.radio.sib16_support=1
-
-# Radio (IMS)
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.dbg.volte_avail_ovr=1 \
-    persist.dbg.vt_avail_ovr=1 \
-    persist.dbg.wfc_avail_ovr=1
+    persist.vendor.delta_time.enable=true
 
 # USB
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -251,26 +254,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.usb.ptp=2e83 \
     ro.usb.ptp_adb=2e84
 
-# Time
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.delta_time.enable=true
-
 # Wi-Fi
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
-
-# Blur
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.launcher.blur.appLaunch=0 \
-    ro.surface_flinger.supports_background_blur=0
-
-# App launch prefetching (IORapd)
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.iorapd.enable=false \
-    iorapd.perfetto.enable=false \
-    iorapd.readahead.enable=false \
-    persist.device_config.runtime_native_boot.iorap_readahead_enable=false
-
-# Zygote
-PRODUCT_PROPERTY_OVERRIDES += \
-    zygote.critical_window.minute=10
